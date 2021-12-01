@@ -16,6 +16,10 @@
   margin-bottom: 40px;
 }
 
+.login-submit {
+  margin-top: 50px;
+}
+
 @media (min-width: 576px) {
   .login-card {
     margin: 45px;

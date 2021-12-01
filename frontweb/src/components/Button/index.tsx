@@ -4,11 +4,11 @@ type Props = {
   text: string;
 };
 
-const ButtonBuy = ({ text }: Props) => {
+const Button = ({ text }: Props) => {
   return (
     <>
-      <div className="btn-buy-container">
-        <button className="btn-buy bg-primary">
+      <div className="btn-normal-container">
+        <button className="btn-normal bg-primary">
           <h6>{text}</h6>
         </button>
       </div>
@@ -16,4 +16,4 @@ const ButtonBuy = ({ text }: Props) => {
   );
 };
 
-export default ButtonBuy;
+export default Button;

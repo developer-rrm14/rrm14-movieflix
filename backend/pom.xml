@@ -9,11 +9,11 @@
 		<version>2.4.4</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.devsuperior</groupId>
-	<artifactId>bds06</artifactId>
+	<groupId>com.rrm14</groupId>
+	<artifactId>movieflix</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bds06</name>
-	<description>Bootcamp Spring React DevSuperior</description>
+	<name>movieflix</name>
+	<description>Bootcamp Spring React MovieFlix</description>
 
 	<properties>
 		<java.version>11</java.version>

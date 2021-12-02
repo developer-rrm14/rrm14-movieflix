@@ -1,9 +1,8 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig } from 'axios';
 import CommentDetails from 'components/CommentDetails';
 import { useEffect, useState } from 'react';
 import { Review } from 'types/review';
 import { BASE_URL, requestBackend } from 'utils/requests';
-import { SpringPage } from 'utils/vendor/spring';
 import './styles.css';
 
 type Props = {

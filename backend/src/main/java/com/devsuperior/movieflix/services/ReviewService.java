@@ -38,8 +38,9 @@ public class ReviewService {
 	public List<ReviewMinDTO> findReviewByMovie(Long id) {
 		Optional<Movie> movie = movieRepository.findById(id);
 		Movie movieEntity = movie.orElseThrow(()-> new ResourceNotFoundException(Constants.ENTITY_NOT_FOUND));
+		User userEntity = authService.authenticated();	
 		
-		List<Review> list = repository.findByMovie(movieEntity);
+		List<Review> list = repository.findByMovieAndUser(movieEntity,userEntity);
 		
 		if (list.isEmpty()) {
 			throw new ResourceNotFoundException(Constants.ENTITY_NOT_FOUND);

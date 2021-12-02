@@ -1,4 +1,4 @@
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useContext, useState } from 'react';
 import { AuthContext } from 'AuthContext';
@@ -20,7 +20,7 @@ type LocationState = {
 const Login = () => {
   const location = useLocation<LocationState>();
 
-  const { from } = location.state || { from: { pathname: '/admin' } };
+  const { from } = location.state || { from: { pathname: '/movies' } };
 
   const { setAuthContextData } = useContext(AuthContext);
 

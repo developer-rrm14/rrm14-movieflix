@@ -16,8 +16,8 @@ export const BASE_URL =
 ////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'catalog-app';
-const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'catalog123';
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID ?? 'myclientid';
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET ?? 'myclientsecret';
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -82,7 +82,7 @@ axios.interceptors.response.use(
   },
   function (error) {
     if (error.response.status === 401 || error.response.status === 403) {
-      history.push('/admin/auth');
+      history.push('/');
     }
 
     return Promise.reject(error);

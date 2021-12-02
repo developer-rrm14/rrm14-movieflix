@@ -1,13 +1,36 @@
+import axios, { AxiosRequestConfig } from 'axios';
 import CommentDetails from 'components/CommentDetails';
+import { useEffect, useState } from 'react';
+import { Review } from 'types/review';
+import { BASE_URL, requestBackend } from 'utils/requests';
+import { SpringPage } from 'utils/vendor/spring';
 import './styles.css';
 
-const Comment = () => {
+type Props = {
+  movieId: string;
+};
+
+const Comment = ({ movieId }: Props) => {
+  const [review, setReview] = useState<Review[]>();
+
+  useEffect(() => {
+    const params: AxiosRequestConfig = {
+      url: BASE_URL + '/movies/' + movieId + '/reviews',
+      withCredentials: true,
+    };
+
+    requestBackend(params).then((response) => {
+      setReview(response.data);
+    });
+  }, [movieId]);
+
   return (
     <div className="base-card comment-card">
-      <CommentDetails />
-      <CommentDetails />
-      <CommentDetails />
-      <CommentDetails />
+      {review?.map((item) => (
+        <div key={item.id}>
+          <CommentDetails name={item.user.name} text={item.text} />
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import Navbar from 'components/Navbar';
+import PrivateRoute from 'components/PrivateRoute';
 import Home from 'pages/Home';
 import Movie from 'pages/Movie';
 import MovieDetails from 'pages/MovieDetails';

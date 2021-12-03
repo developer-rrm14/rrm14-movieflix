@@ -24,6 +24,7 @@ const Evaluation = ({ movieId }: Props) => {
     requestPostEvaluation(formData)
       .then((response) => {
         setHasError(false);
+        window.location.reload();
       })
       .catch((error) => {
         setHasError(true);

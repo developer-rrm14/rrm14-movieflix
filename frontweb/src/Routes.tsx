@@ -7,18 +7,42 @@ import { Switch, Route, Router } from 'react-router-dom';
 import history from 'utils/history';
 
 const Routes = () => (
+  // Solucao 01: Com Route
+  // Positivo..: Rotas Funcionam Normalmente
+  // Negativo..: Não Bloqueias Chamadas Diretas na URL pois Nao Utiliza o PrivateRoute
+
+  // <Router history={history}>
+  //   <Navbar />
+  //   <Switch>
+  //     <Route path="/" exact>
+  //       <Home />
+  //     </Route>
+  //     <Route path="/movies" exact>
+  //       <Movie />
+  //     </Route>
+  //     <Route path="/movies/:movieId">
+  //       <MovieDetails />
+  //     </Route>
+  //   </Switch>
+  // </Router>
+
+  // Solucao 02: Com PrivateRoute
+  // Positivo..: Rota Movies Funciona, Bloqueia Chamadas Diretas
+  // Negativo..: Não Funciona A Rota para o MovieDetails, não consigo recuperar o :movieId
+  // dentro do PrivateRoute
+
   <Router history={history}>
     <Navbar />
     <Switch>
       <Route path="/" exact>
         <Home />
       </Route>
-      <Route path="/movies" exact>
+      <PrivateRoute path="/movies">
         <Movie />
-      </Route>
-      <Route path="/movies/:movieId">
+      </PrivateRoute>
+      <PrivateRoute path="/movies/:movieId">
         <MovieDetails />
-      </Route>
+      </PrivateRoute>
     </Switch>
   </Router>
 );

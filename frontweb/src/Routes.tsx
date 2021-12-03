@@ -11,40 +11,40 @@ const Routes = () => (
   // Positivo..: Rotas Funcionam Normalmente
   // Negativo..: Não Bloqueias Chamadas Diretas na URL pois Nao Utiliza o PrivateRoute
 
-  // <Router history={history}>
-  //   <Navbar />
-  //   <Switch>
-  //     <Route path="/" exact>
-  //       <Home />
-  //     </Route>
-  //     <Route path="/movies" exact>
-  //       <Movie />
-  //     </Route>
-  //     <Route path="/movies/:movieId">
-  //       <MovieDetails />
-  //     </Route>
-  //   </Switch>
-  // </Router>
-
-  // Solucao 02: Com PrivateRoute
-  // Positivo..: Rota Movies Funciona, Bloqueia Chamadas Diretas
-  // Negativo..: Não Funciona A Rota para o MovieDetails, não consigo recuperar o :movieId
-  // dentro do PrivateRoute
-
   <Router history={history}>
     <Navbar />
     <Switch>
       <Route path="/" exact>
         <Home />
       </Route>
-      <PrivateRoute path="/movies">
+      <Route path="/movies" exact>
         <Movie />
-      </PrivateRoute>
-      <PrivateRoute path="/movies/:movieId">
+      </Route>
+      <Route path="/movies/:movieId">
         <MovieDetails />
-      </PrivateRoute>
+      </Route>
     </Switch>
   </Router>
+
+  // Solucao 02: Com PrivateRoute
+  // Positivo..: Rota Movies Funciona, Bloqueia Chamadas Diretas
+  // Negativo..: Não Funciona A Rota para o MovieDetails, não consigo recuperar o :movieId
+  // dentro do PrivateRoute
+
+  // <Router history={history}>
+  //   <Navbar />
+  //   <Switch>
+  //     <Route path="/" exact>
+  //       <Home />
+  //     </Route>
+  //     <PrivateRoute path="/movies">
+  //       <Movie />
+  //     </PrivateRoute>
+  //     <PrivateRoute path="/movies/:movieId">
+  //       <MovieDetails />
+  //     </PrivateRoute>
+  //   </Switch>
+  // </Router>
 );
 
 export default Routes;

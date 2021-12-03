@@ -8,6 +8,11 @@ type LoginData = {
   username: string;
   password: string;
 };
+
+type EvaluationData = {
+  movieId: number;
+  text: string;
+};
 ////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -58,6 +63,24 @@ export const requestBackend = (config: AxiosRequestConfig) => {
     : config.headers;
 
   return axios({ ...config, baseURL: BASE_URL, headers });
+};
+////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////
+export const requestPostEvaluation = (evaluationData: EvaluationData) => {
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer ' + getAuthData().access_token,
+  };
+
+  return axios({
+    method: 'POST',
+    baseURL: BASE_URL,
+    url: '/reviews',
+    data: evaluationData,
+    headers,
+    withCredentials: true,
+  });
 };
 ////////////////////////////////////////////////////////////////////////////////////////
 

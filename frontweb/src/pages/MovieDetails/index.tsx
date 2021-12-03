@@ -14,7 +14,7 @@ const MovieDetails = () => {
   return (
     <div className="movie-details-container">
       <h1>Tela detalhes do filmes id: {movieId}</h1>
-      {hasAnyRoles(['ROLE_MEMBER']) && <Evaluation />}
+      {hasAnyRoles(['ROLE_MEMBER']) && <Evaluation movieId={movieId} />}
       <div className="movie-details-card">
         <Comment movieId={movieId} />
       </div>
